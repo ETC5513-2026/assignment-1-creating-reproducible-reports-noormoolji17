@@ -1,0 +1,13 @@
+---
+title: "Untitled"
+format: html
+---
+
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+library (tidyverse)
+```
