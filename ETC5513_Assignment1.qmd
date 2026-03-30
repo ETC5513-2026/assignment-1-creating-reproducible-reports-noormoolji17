@@ -1,10 +1,10 @@
 ---
 title: "ETC5513_Assignment1"
 author: Noor Fatima Moolji
-format: 
- html: default
+format:
+  html:
     theme: cerulean
- pdf: default
+  pdf: default
 ---
 
 
