@@ -23,7 +23,7 @@ library (ggplot2)
 ```
 
 ```{r}
-# Reading Data
+# reading data
 data <- read.csv("data/36621293_Noor Fatima Moolji.csv")
 ```
 
@@ -33,3 +33,30 @@ This report analyses data from a personalised marketing campaign, where differen
 ## Research Question
 The report investigates the primary question "Is there a relationship between marketing expenditure and customer purchase amounts". It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This analysis explores whether higher marketing expeniture is associated with higher purchase amounts, using data collected from last quarter's marketing campaign.
 
+## Dataset Introduction
+
+```{r}
+#| label: data cleaning
+#| echo: false
+#  message: false
+# warning: false
+
+head (data, n=10)
+glimpse (data)
+
+# remove duplicates
+data <- data |>
+    distinct ()
+
+# select relevant variables
+data <- data |>
+    select(customer_id,marketing_spend,visits, purchase_amount,segment)
+
+# remove rows with missing values
+clean_data <- data |>
+    drop_na(purchase_amount, marketing_spend)
+
+# convert segment into factor
+clean_data <- clean_data |>
+    mutate(segment = factor(segment))
+```
