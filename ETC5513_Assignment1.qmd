@@ -1,6 +1,10 @@
 ---
-title: "Untitled"
-format: html
+title: "ETC5513_Assignment1"
+author: Noor Fatima Moolji
+format: 
+ html: default
+    theme: cerulean
+ pdf: default
 ---
 
 
@@ -9,5 +13,7 @@ format: html
 #| echo: false
 #| message: false
 #| warning: false
+library (tinytex)
 library (tidyverse)
+library (ggplot2)
 ```
