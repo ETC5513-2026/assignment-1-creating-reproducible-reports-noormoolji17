@@ -38,6 +38,7 @@ The report investigates the primary question "Is there a relationship between ma
 ```{r}
 #| label: data cleaning
 #| echo: false
+#| include: false
 #  message: false
 # warning: false
 
