@@ -14,6 +14,9 @@ execute:
 
 ```{r}
 #| label: setup
+#| echo: false
+#  message: false
+# warning: false
 library (tinytex)
 library (tidyverse)
 library (ggplot2)
@@ -21,7 +24,7 @@ library (ggplot2)
 
 ```{r}
 # Reading Data
-dat <- read.csv("data/36621293_Noor Fatima Moolji.csv")
+data <- read.csv("data/36621293_Noor Fatima Moolji.csv")
 ```
 
 ## Introduction
@@ -29,3 +32,4 @@ This report analyses data from a personalised marketing campaign, where differen
 
 ## Research Question
 The report investigates the primary question "Is there a relationship between marketing expenditure and customer purchase amounts". It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This analysis explores whether higher marketing expeniture is associated with higher purchase amounts, using data collected from last quarter's marketing campaign.
+
