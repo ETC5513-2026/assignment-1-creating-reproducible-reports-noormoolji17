@@ -17,3 +17,8 @@ library (tinytex)
 library (tidyverse)
 library (ggplot2)
 ```
+
+```{r}
+# Reading Data
+dat <- read.csv("data/36621293_Noor Fatima Moolji.csv")
+```
