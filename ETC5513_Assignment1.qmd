@@ -24,8 +24,8 @@ library (ggplot2)
 dat <- read.csv("data/36621293_Noor Fatima Moolji.csv")
 ```
 
-##Introduction
+## Introduction
 This report analyses data from a personalised marketing campaign, where different levels of marketing spend were allocated to customers through different channels. The goal of the analysis is to investigate whether higher marketing spend per customer is related with higher purchase amounts. Understanding the relationship is vital, as it will help evaluate the effectiveness of personalised marketing efforts. These insights will also inform future budget allocations and pricing strategies. 
 
-##Research Question
+## Research Question
 The report investigates the primary question "Is there a relationship between marketing expenditure and customer purchase amounts". It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This analysis explores whether higher marketing expeniture is associated with higher purchase amounts, using data collected from last quarter's marketing campaign.
