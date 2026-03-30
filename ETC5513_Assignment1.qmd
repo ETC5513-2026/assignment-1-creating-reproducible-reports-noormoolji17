@@ -5,14 +5,15 @@ format:
   html:
     theme: cerulean
   pdf: default
+execute:
+  echo: false
+  message: false
+  warning: false
 ---
 
 
 ```{r}
 #| label: setup
-#| echo: false
-#| message: false
-#| warning: false
 library (tinytex)
 library (tidyverse)
 library (ggplot2)
