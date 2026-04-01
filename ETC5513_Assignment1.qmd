@@ -20,6 +20,9 @@ execute:
 library (tinytex)
 library (tidyverse)
 library (ggplot2)
+library(knitr)
+library(kableExtra)
+library(tidyr)
 ```
 
 ```{r}
@@ -51,7 +54,7 @@ raw_data <- raw_data |>
 
 # select relevant variables
 raw_data <- raw_data |>
-    select(customer_id,marketing_spend,visits, purchase_amount,segment)
+    select(customer_id,marketing_spend, purchase_amount,segment)
 
 # remove rows with missing values
 clean_data <- raw_data |>
@@ -62,5 +65,39 @@ clean_data <- clean_data |>
     mutate(segment = factor(segment))
 ```
 
-The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. It captures customer_id,signup_date, marketing_spend, visits, purchase_amount, segment(Consumer, Enterprise or SMB) and notes. The **key variables** are `marketing_spend` and `purchase_amount`, which are the basis for the analysis. 
-To prepare the data for this analysis, duplicate records were removed, irrelevant columns were not selected, and rows with missing data were removed. Lastly, the `segment` variable was converted into a factor, so R treats it as a categorical variable.
+The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. It captures customer_id, signup_date, marketing_spend, visits, purchase_amount, segment (Consumer, Enterprise, or SMB), and notes. The key variables are marketing_spend and purchase_amount, which form the basis of the analysis.
+
+To prepare the data for this analysis, duplicate records were removed, irrelevant columns were excluded, and rows with missing data were removed. Lastly, the segment variable was converted into a factor so that R treats it as a categorical variable.
+
+## Dataset Description 
+The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` variables.
+
+The variables in the dataset are:
+1. customer_id : Unique identifier for each customer. data type = string.
+2. marketing_spend : The total amount spent on marketing for each customer. data type = double.
+3. purchase_amount : The total purchase amount made by each customer. data type= double.
+4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
+
+The table below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables. The histogram shows the distribution of both the variables side-by-side , showing how the `marketing_spend`  `purchase_amount` are spread across customers in the campaign.
+
+```{r}
+#| label: tbl-summary-stats
+#| echo: false
+
+clean_data |>
+  select(marketing_spend, purchase_amount) |>
+  summary() |>
+  kable (caption = "Summary statistics for marketing spend and purchase amount")
+```
+
+```{r}
+#| label: fig-distribution
+#| echo: false
+
+clean_data  |>
+  select(marketing_spend, purchase_amount) |>
+  pivot_longer(everything()) |>
+  ggplot(aes(x = value, fill = name)) +
+  geom_histogram(binwidth = 30, position = "dodge") +
+  labs(title = "Distribution of Marketing Spend and Purchase Amount", x = "Amount", y = "")
+```

@@ -84,7 +84,82 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dataset-introduction" class="level1">
 <h1>Dataset Introduction</h1>
-<p>The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. It captures customer_id,signup_date, marketing_spend, visits, purchase_amount, segment(Consumer, Enterprise or SMB) and notes. The <strong>key variables</strong> are <code>marketing_spend</code> and <code>purchase_amount</code>, which are the basis for the analysis. To prepare the data for this analysis, duplicate records were removed, irrelevant columns were not selected, and rows with missing data were removed. Lastly, the <code>segment</code> variable was converted into a factor, so R treats it as a categorical variable.</p>
+<p>The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. It captures customer_id, signup_date, marketing_spend, visits, purchase_amount, segment (Consumer, Enterprise, or SMB), and notes. The key variables are marketing_spend and purchase_amount, which form the basis of the analysis.</p>
+<p>To prepare the data for this analysis, duplicate records were removed, irrelevant columns were excluded, and rows with missing data were removed. Lastly, the segment variable was converted into a factor so that R treats it as a categorical variable.</p>
+<section id="dataset-description" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-description">Dataset Description</h2>
+<p>The cleaned dataset has 132 rows and 4 variables.</p>
+<p>The variables in the dataset are: 1. customer_id : Unique identifier for each customer. data type = string. 2. marketing_spend : The total amount spent on marketing for each customer. data type = double. 3. purchase_amount : The total purchase amount made by each customer. data type= double. 4. segment : The customer segment e.g.&nbsp;SMB, Consumer and Enterprise. data type= factor.</p>
+<p>The table below summarises the minimum, median, mean and maximum values for both <code>marketing_spend</code> and <code>purchase_amount</code>, providing a numerical overview of the two key variables. The histogram shows the distribution of both the variables side-by-side , showing how the <code>marketing_spend</code> <code>purchase_amount</code> are spread across customers in the campaign.</p>
+<div class="cell">
+<div id="tbl-summary-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summary-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Summary statistics for marketing spend and purchase amount
+</figcaption>
+<div aria-describedby="tbl-summary-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">marketing_spend</th>
+<th style="text-align: left;">purchase_amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Min. : 2.47</td>
+<td style="text-align: left;">Min. : 0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1st Qu.: 88.36</td>
+<td style="text-align: left;">1st Qu.: 60.63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Median :150.86</td>
+<td style="text-align: left;">Median :124.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mean :155.72</td>
+<td style="text-align: left;">Mean :123.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3rd Qu.:219.35</td>
+<td style="text-align: left;">3rd Qu.:177.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Max. :298.53</td>
+<td style="text-align: left;">Max. :334.61</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-distribution" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ETC5513_Assignment1_files/figure-html/fig-distribution-1.png" id="fig-distribution" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 </main>
