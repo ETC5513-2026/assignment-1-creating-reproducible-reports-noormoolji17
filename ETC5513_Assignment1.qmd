@@ -78,20 +78,22 @@ The variables in the dataset are:
 3. purchase_amount : The total purchase amount made by each customer. data type= double.
 4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
 
-The table below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables. The histogram shows the distribution of both the variables side-by-side , showing how the `marketing_spend`  `purchase_amount` are spread across customers in the campaign.
+The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables. The @fig-distribution shows the distribution of how the variables `marketing_spend` and `purchase_amount` are spread across customers in the campaign.
 
 ```{r}
 #| label: tbl-summary-stats
+#| tbl-cap: "Summary statistics for marketing spend and purchase amount"
 #| echo: false
 
 clean_data |>
   select(marketing_spend, purchase_amount) |>
   summary() |>
-  kable (caption = "Summary statistics for marketing spend and purchase amount")
+  kable ()
 ```
 
 ```{r}
 #| label: fig-distribution
+#| fig-cap: "Distribution of Marketing Spend and Purchase Amount"
 #| echo: false
 
 clean_data  |>
@@ -101,3 +103,6 @@ clean_data  |>
   geom_histogram(binwidth = 30, position = "dodge") +
   labs(title = "Distribution of Marketing Spend and Purchase Amount", x = "Amount", y = "")
 ```
+
+# Results
+
