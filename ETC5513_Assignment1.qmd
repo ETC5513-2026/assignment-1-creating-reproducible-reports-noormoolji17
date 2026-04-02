@@ -31,7 +31,7 @@ raw_data <- read.csv("data/36621293_Noor Fatima Moolji.csv")
 ```
 
 # Introduction
-This report analyses data from a personalised marketing campaign, where different levels of marketing expenditure were allocated to customers through different channels. The goal of the analysis is to investigate whether higher marketing spend per customer is related with higher purchase amounts. Understanding the relationship is vital, as it will help evaluate the effectiveness of personalised marketing efforts. These insights will also inform future budget allocations and pricing strategies. 
+This report analyses data from a personalised marketing campaign in which different levels of marketing expenditure were allocated to customers across various channels. The goal of the analysis is to investigate whether higher marketing spend per customer is associated with higher purchase amounts. Understanding this relationship is vital, as it will help evaluate the effectiveness of personalised marketing efforts. These insights will also inform future budget allocations and pricing strategies.
 
 # Research Question
 The report investigates the primary question "Is there a relationship between marketing expenditure and customer purchase amounts". It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This question is explored using data collected from last quarter's marketing campaign.
@@ -65,9 +65,14 @@ clean_data <- clean_data |>
     mutate(segment = factor(segment))
 ```
 
-The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. It captures customer_id, signup_date, marketing_spend, visits, purchase_amount, segment (Consumer, Enterprise, or SMB), and notes. The key variables are marketing_spend and purchase_amount, which form the basis of the analysis.
+The dataset records data from a personalised marketing campaign conducted over the last quarter for an online retailer. This data is observational in nature, as it is collected from a campaign. It contains a set of 150 customer records, where each row represents a unique customer.  It captures seven variables which are customer_id, signup_date, marketing_spend, visits, purchase_amount, segment (Consumer, Enterprise, or SMB), and notes. The key variables are marketing_spend and purchase_amount, which form the basis of the analysis.
 
-To prepare the data for this analysis, duplicate records were removed, irrelevant columns were excluded, and rows with missing data were removed. Lastly, the segment variable was converted into a factor so that R treats it as a categorical variable.
+To prepare the data for this analysis, the following steps were performed:
+
+1. **Duplicate records were removed** using the `distinct()` function to ensure each observation is unique, as it could  distrort the relationship between the two variables.
+2. **Irrelevant columns were excluded** such as `signup_date`, `visits` and `notes` as they don't serve any purpose to our research question/analysis.
+3. **Rows with missing data was removed** as the two key primary variables are important (one is independent, the other is dependent), a row missing either one of these values will not be able to contribute anything meaningful to the analysis.
+4. **The segment variable is converted into a factor** as R will otherwise treat as a string variable. This will ensure that R treats Consumer, SMB and Enterprise as discrete groups, as it will be incorporated into the analysis to gain a deeper understanding of the research question, whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.
 
 ## Dataset Description 
 The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` variables.
@@ -78,7 +83,18 @@ The variables in the dataset are:
 3. purchase_amount : The total purchase amount made by each customer. data type= double.
 4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
 
-The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables. The @fig-distribution shows the distribution of how the variables `marketing_spend` and `purchase_amount` are spread across customers in the campaign.
+The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
+  As we can see for `marketing_spend` the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers withno extreme outliers.   
+  
+  Additionally, for `purchase_amount`, the mean is 123.22 and median 124.17 which is again close, indicating fair distribution. 
+
+This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns. 
+
+Notably, the mean of `marketing spend` is higher than `purchase_amount` which tells us that on average, more money is being invested in customers than returned through purchases. 
+
+The @fig-distribution shows the distribution of how the variables `marketing_spend` and `purchase_amount` are spread across customers in the campaign. We can see that `marketing_spend` bars (pink) are fairly distributed across the range, which is consistent with the mean and median seen in the table. While, the `purchase_amount` bars (blue) are more concentrated in the lower range (0-200), with a peak in the 150 range and sharp drop after 200. 
+
+ The `puurchase amount` bars are noticeable taller in the lower ranges, while `marketing_spend` bars are noticeably taller in the higher ranges, which visually shows us that on an average more is being spent on marketin than customer's purchase amounts.
 
 ```{r}
 #| label: tbl-summary-stats
