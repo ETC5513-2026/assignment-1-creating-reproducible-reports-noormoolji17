@@ -106,3 +106,29 @@ clean_data  |>
 
 # Results
 
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Scatter plot of marketing spend VS purchase amount"
+#| echo: false
+
+ggplot(clean_data, aes(x=marketing_spend, y=purchase_amount))+
+  geom_point(alpha = 0.5, color = "steel blue")+
+  geom_smooth(color = "darkred") +
+  labs(title = "Scatter plot of marketing spend VS purchase amount", x = "Marketing Spend", y = "Purchase Amount") +
+  theme_minimal()
+```
+
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Scatter plot of marketing spend VS purchase amount, facted by customer segment"
+#| echo: false
+
+clean_data|>
+  ggplot(aes(x = marketing_spend, y = purchase_amount)) +
+  geom_point(alpha = 0.6, color = "steel blue") +
+  facet_wrap(~segment) +
+  labs(title = "Scatter plot of marketing spend VS purchase amount, facted by customer segment",x = "Marketing Spend", y = "Purchase Amount") +
+  theme_minimal()
+  theme(legend.position = "none")
+```
