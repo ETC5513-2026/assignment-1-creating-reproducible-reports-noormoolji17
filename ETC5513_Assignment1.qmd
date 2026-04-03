@@ -36,7 +36,7 @@ raw_data <- read.csv("data/36621293_Noor Fatima Moolji.csv")
 This report analyses data from a personalised marketing campaign in which different levels of marketing expenditure were allocated to customers across various channels. The goal of the analysis is to investigate whether higher marketing spend per customer is associated with higher purchase amounts. Understanding this relationship is vital, as it will help evaluate the effectiveness of personalised marketing efforts. These insights will also inform future budget allocations and pricing strategies.
 
 # Research Question
-The report investigates the primary question "Is there a relationship between marketing expenditure and customer purchase amounts". It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This question is explored using data collected from last quarter's marketing campaign.
+The report investigates the primary question **"Is there a relationship between marketing expenditure and customer purchase amounts"**. It examines the relationship between marketing spend per customer (independent variable) and purchase amount (dependent variable). This question is explored using data collected from last quarter's marketing campaign.
 
 # Dataset Introduction
 
@@ -71,7 +71,7 @@ The dataset records data from a personalised marketing campaign conducted over t
 
 To prepare the data for this analysis, the following steps were performed:
 
-1.**Duplicate records were removed** using the `distinct()` function to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
+1. **Duplicate records were removed** using the `distinct()` function to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
 
 2. **Irrelevant columns were excluded**, such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.
 
@@ -84,8 +84,11 @@ The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` varia
 
 The variables in the dataset are:
 1. customer_id : Unique identifier for each customer. data type = string.
+
 2. marketing_spend : The total amount spent on marketing for each customer. data type = double.
+
 3. purchase_amount : The total purchase amount made by each customer. data type= double.
+
 4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
 
 
@@ -101,9 +104,10 @@ clean_data |>
 ```
 
 The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
-  As we can see, for `marketing_spend`, the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers with no extreme outliers.   
+
+As we can see, for `marketing_spend`, the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers with no extreme outliers.   
   
-  Additionally, for `purchase_amount`, the mean is (123.22) and the median is (124.17), which are again close, indicating a fairly even distribution.
+Additionally, for `purchase_amount`, the mean is (123.22) and the median is (124.17), which are again close, indicating a fairly even distribution.
 
 This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.
 
@@ -123,7 +127,9 @@ clean_data  |>
   labs(title = "Distribution of Marketing Spend and Purchase Amount", x = "Amount", y = "")
 ```
 
-The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in the table. Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200.
+The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in the table. 
+
+Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200.
 
 The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, on average, more is being spent on marketing than customers are spending on purchases.
 
@@ -146,7 +152,11 @@ ggplot(data = clean_data,
   theme_bw()
 ```
 
-The @fig-scatter shows the relationship between marketing_spend and purchase_amount across all customers. The upward-sloping trend line shows the existence of a positive relationship between the two variables, where customers who received higher marketing spend made higher-value purchases. Since the points are widely scattered around the trend line, we can assume that other factors, such as visits or customer_segment, may be influencing purchase decisions. Overall, @fig-scatter indicates that there is a positive yet moderate relationship between the two key primary variables.
+The @fig-scatter shows the relationship between marketing_spend and purchase_amount across all customers. The upward-sloping trend line shows the existence of a positive relationship between the two variables, where customers who received higher marketing spend made higher-value purchases. 
+
+Since the points are widely scattered around the trend line, we can assume that other factors, such as visits or customer_segment, may be influencing purchase decisions. 
+
+Overall, @fig-scatter indicates that there is a positive yet moderate relationship between the two key primary variables.
 
 ```{r}
 #| label: fig-scatter-segment-wise
@@ -166,4 +176,8 @@ The @fig-scatter shows the relationship between marketing_spend and purchase_amo
   theme(legend.position = "none")
 ```
 
-The @fig-scatter-segment-wise shows the relationship between marketing_spend and purchase_amount segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment. Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact that Enterprise has fewer customers in the dataset. Additionally, as we can see a wide spread of points across all three segments, this suggests that marketing spend alone does not explain purchase amount, regardless of customer type.
+The @fig-scatter-segment-wise shows the relationship between marketing_spend and purchase_amount segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment. 
+
+Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact that Enterprise has fewer customers in the dataset. 
+
+Additionally, as we can see a wide spread of points across all three segments, this suggests that marketing spend alone does not explain purchase amount, regardless of customer type.
