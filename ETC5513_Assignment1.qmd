@@ -19,7 +19,6 @@ execute:
 #| echo: false
 #  message: false
 # warning: false
-library (tinytex)
 library (tidyverse)
 library (ggplot2)
 library(knitr)
