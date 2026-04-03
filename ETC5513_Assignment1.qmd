@@ -13,6 +13,8 @@ execute:
 
 
 ```{r}
+# loading libraries
+
 #| label: setup
 #| echo: false
 #  message: false
@@ -45,7 +47,7 @@ The report investigates the primary question "Is there a relationship between ma
 #| message: false
 #| warning: false
 
-head (raw_data, n=10)
+head (raw_data, n = 10)
 glimpse (raw_data)
 
 # remove duplicates
@@ -69,13 +71,13 @@ The dataset records data from a personalised marketing campaign conducted over t
 
 To prepare the data for this analysis, the following steps were performed:
 
-1.**Duplicate records were removed** using the distinct() function to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
+1.**Duplicate records were removed** using the `distinct()` function to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
 
-2. **Irrelevant columns were excluded**,** such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.
+2. **Irrelevant columns were excluded**, such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.
 
 3. **Rows with missing data were removed**, as the two key primary variables are important (one is independent, the other is dependent); a row missing either of these values will not be able to contribute anything meaningful to the analysis.
 
-4. **The segment variable was converted into a factor**, as R would otherwise treat it as a string variable. This ensures that R treats Consumer, SMB, and Enterprise as discrete groups, as it will be incorporated into the analysis to gain a deeper understanding of the research question—whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.
+4. **The segment variable was converted into a factor**, as R would otherwise treat it as a string variable. This ensures that R treats Consumer, SMB, and Enterprise as discrete groups, as it will be incorporated into the analysis to gain a deeper understanding of the research question— whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.
 
 ## Dataset Description 
 The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` variables.
@@ -86,18 +88,6 @@ The variables in the dataset are:
 3. purchase_amount : The total purchase amount made by each customer. data type= double.
 4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
 
-The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
-  As we can see, for `marketing_spend`, the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers with no extreme outliers.   
-  
-  Additionally, for `purchase_amount`, the mean is (123.22) and the median is (124.17), which are again close, indicating a fairly even distribution.
-
-This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.
-
-Notably, the mean of `marketing_spend` is higher than `purchase_amount`, which tells us that, on average, more money is being invested in customers than is returned through purchases.
-
-The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in the table. Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200.
-
-The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, on average, more is being spent on marketing than customers are spending on purchases.
 
 ```{r}
 #| label: tbl-summary-stats
@@ -109,6 +99,16 @@ clean_data |>
   summary() |>
   kable ()
 ```
+
+The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
+  As we can see, for `marketing_spend`, the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers with no extreme outliers.   
+  
+  Additionally, for `purchase_amount`, the mean is (123.22) and the median is (124.17), which are again close, indicating a fairly even distribution.
+
+This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.
+
+Notably, the mean of `marketing_spend` is higher than `purchase_amount`, which tells us that, on average, more money is being invested in customers than is returned through purchases.
+
 
 ```{r}
 #| label: fig-distribution
@@ -122,6 +122,10 @@ clean_data  |>
   geom_histogram(binwidth = 30, position = "dodge") +
   labs(title = "Distribution of Marketing Spend and Purchase Amount", x = "Amount", y = "")
 ```
+
+The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in the table. Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200.
+
+The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, on average, more is being spent on marketing than customers are spending on purchases.
 
 # Results
 
