@@ -16,7 +16,9 @@ execute:
 I used AI to improve the communication aspect of my assignment, not to generate any analysis.
 
 Specifically, I asked AI to :
+
 - improve the grammar and readability of my sentences
+
 - check that my explanations/paragraphs were easy to understand
 
 Here is the link to my [prompts](https://chatgpt.com/share/69d091af-f06c-8323-966a-09e149c7384b)
