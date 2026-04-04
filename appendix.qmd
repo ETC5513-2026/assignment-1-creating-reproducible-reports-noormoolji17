@@ -4,7 +4,6 @@ author: Noor Fatima Moolji
 format:
   html:
     theme: cerulean
-  pdf: default
 execute:
   echo: false
   message: false
