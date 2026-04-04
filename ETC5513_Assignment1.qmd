@@ -137,7 +137,7 @@ We can see that the `marketing_spend` bars (pink) are fairly evenly distributed 
 
 Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200. Very few customers purchase above 250.
 
-The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges. This visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
+The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges. This visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there might be an optimal level of marketing investment that exists, and spending beyond that may lead to diminishing returns.
 
 # Results
 

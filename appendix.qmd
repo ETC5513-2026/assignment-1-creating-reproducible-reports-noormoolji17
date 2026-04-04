@@ -16,7 +16,7 @@ I used AI to improve the communication aspect of my assignment, not to generate 
 
 Specifically, I asked AI to :
 
-- improve the grammar and readability of my sentences
+- improve the grammar, flow and readability of my sentences
 
 - check that my explanations/paragraphs were easy to understand
 
