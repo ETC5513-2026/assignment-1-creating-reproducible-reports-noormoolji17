@@ -18,8 +18,8 @@ execute:
 #| echo: false
 #| message: false
 # | warning: false
-library (tidyverse)
-library (ggplot2)
+library(tidyverse)
+library(ggplot2)
 library(knitr)
 library(kableExtra)
 library(tidyr)
@@ -69,9 +69,9 @@ The dataset records data from a personalised marketing campaign conducted over t
 
 To prepare the data for this analysis, the following steps were performed:
 
-1. **Duplicate records were removed** using the `distinct()` function to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
+1. **Duplicate records were removed** to ensure each observation is unique, as duplicates could distort the relationship between the two variables.
 
-2. **Irrelevant columns were excluded**, such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.
+2. **Irrelevant columns were excluded** such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.
 
 3. **Rows with missing data were removed**, as the two key primary variables are important (one is independent, the other is dependent); a row missing either of these values will not be able to contribute anything meaningful to the analysis.
 
@@ -82,13 +82,13 @@ The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` varia
 
 The variables in the dataset are:
 
-1. customer_id : Unique identifier for each customer. data type = string.
+1. `customer_id` : Unique identifier for each customer. data type = string.
 
-2. marketing_spend : The total amount spent on marketing for each customer. data type = double.
+2. `marketing_spend` : The total amount spent on marketing for each customer. data type = double.
 
-3. purchase_amount : The total purchase amount made by each customer. data type= double.
+3. `purchase_amount` : The total purchase amount made by each customer. data type= double.
 
-4. segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
+4. `segment : The customer segment e.g. SMB, Consumer and Enterprise. data type= factor.
 
 
 ```{r}
@@ -102,12 +102,10 @@ clean_data |>
   kable ()
 ```
 
-The @tbl-summary-stats below summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
+The @tbl-summary-stats above summarises the minimum, median, mean and maximum values for both `marketing_spend` and `purchase_amount`, providing a numerical overview of the two key variables.  
 
-As we can see, for `marketing_spend`, the mean (155.72) and median (150.86) are close, which indicates that the spend is fairly distributed across customers with no extreme outliers.   
+As we can see, for `marketing_spend` and `purchase_amount`, the mean (155.72 & 123.22) and median (150.86 & 124.17) are close, which indicates that both the variables are fairly distributed.   
   
-Additionally, for `purchase_amount`, the mean (123.22) and the median (124.17), are  close, indicating a fairly even distribution.
-
 This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.
 
 Notably, the mean of `marketing_spend` is higher than `purchase_amount`, which tells us that, on average, more money is being invested in customers than is returned through purchases.
@@ -121,19 +119,25 @@ Notably, the mean of `marketing_spend` is higher than `purchase_amount`, which t
 clean_data  |>
   select(marketing_spend, 
          purchase_amount) |>
-  pivot_longer(everything()) |>
-  ggplot(aes(x = value, fill = name)) +
-  geom_histogram(binwidth = 30, position = "dodge") +
+  pivot_longer(
+               everything()
+               ) |>
+  ggplot(aes(x = value, 
+         fill = name)) +
+  geom_histogram(binwidth = 30, 
+                position = "dodge") +
   labs(title = "Distribution of Marketing Spend and Purchase Amount", 
         x = "Amount", 
         y = "")
 ```
 
-The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in the table. 
+The @fig-distribution shows how the variables `marketing_spend` and `purchase_amount` are distributed across customers in the campaign. 
 
-Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200.
+We can see that the `marketing_spend` bars (pink) are fairly evenly distributed across the range, which is consistent with the mean and median seen in @tbl-summary-stats. 
 
-The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, on average, more is being spent on marketing than customers are spending on purchases.
+Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200. Very few customers purchase above 250.
+
+The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, beyond a certain level marketing investment, does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment and spending beyond that may lead to diminishing returns.
 
 # Results
 
@@ -181,6 +185,10 @@ Overall, @fig-scatter indicates that there is a positive yet moderate relationsh
 
 The @fig-scatter-segment-wise shows the relationship between marketing_spend and purchase_amount segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment. 
 
-Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact that Enterprise has fewer customers in the dataset. 
+Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact they have fixed budgets and needs, meaning they are likely to purchase despite the level of marketing investment allocated to their segment. 
 
-Additionally, as we can see a wide spread of points across all three segments, this suggests that marketing spend alone does not explain purchase amount, regardless of customer type.
+Additionally, the zeros in the SMB segments are seen at low levels of marketing spend, which suggests that a minimum level of marketing investment must be allocated to drive purchase. 
+
+Lastly, as we can see that Consumers have wide spread points, indicating that their behaviour is hard to predict and other factors may influence purchasing decisions. 
+
+In conclusion, we can see that there exists a positive relationship between `marketing_spend` and `purchase_amount` across all segments, however we can conclude that `marketing_spend` alone is not sufficient to drive purchases.
