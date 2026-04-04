@@ -12,7 +12,7 @@ execute:
 
 # AI Declaration Statement
 
-I used AI to improve the communication aspect of my assignment, not to generate any analysis.
+I used AI to improve the communication aspect of my assignment, not to generate any analysis or code.
 
 Specifically, I asked AI to :
 

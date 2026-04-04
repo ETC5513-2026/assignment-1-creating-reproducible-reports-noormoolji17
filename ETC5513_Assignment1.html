@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
 <p>To prepare the data for this analysis, the following steps were performed:</p>
 <ol type="1">
 <li><p><strong>Duplicate records were removed</strong> to ensure each observation is unique, as duplicates could distort the relationship between the two variables.</p></li>
-<li><p><strong>Irrelevant columns were excluded</strong> such as signup_date, visits, and notes, as they do not serve any purpose for the research question or analysis.</p></li>
+<li><p><strong>Irrelevant columns were excluded</strong> such as <code>signup_date</code>, <code>visits</code>, and <code>notes</code>, as they do not serve any purpose for the research question or analysis.</p></li>
 <li><p><strong>Rows with missing data were removed</strong>, as the two key primary variables are important (one is independent, the other is dependent); a row missing either of these values will not be able to contribute anything meaningful to the analysis.</p></li>
 <li><p><strong>The segment variable was converted into a factor</strong>, as R would otherwise treat it as a string variable. This ensures that R treats Consumer, SMB, and Enterprise as discrete groups. This variable will be incorporated into the analysis to gain a deeper understanding of the research question—whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.</p></li>
 </ol>
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><code>customer_id</code> : Unique identifier for each customer. data type = string.</p></li>
 <li><p><code>marketing_spend</code> : The total amount spent on marketing for each customer. data type = double.</p></li>
 <li><p><code>purchase_amount</code> : The total purchase amount made by each customer. data type= double.</p></li>
-<li><p>`segment : The customer segment e.g.&nbsp;SMB, Consumer and Enterprise. data type= factor.</p></li>
+<li><p><code>segment</code> : The customer segment e.g.&nbsp;SMB, Consumer and Enterprise. data type= factor.</p></li>
 </ol>
 <div class="cell">
 <div id="tbl-summary-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -158,7 +158,7 @@ Table&nbsp;1: Summary statistics for marketing spend and purchase amount
 </div>
 <p>The <a href="#tbl-summary-stats" class="quarto-xref">Table&nbsp;1</a> above summarises the minimum, median, mean and maximum values for both <code>marketing_spend</code> and <code>purchase_amount</code>, providing a numerical overview of the two key variables.</p>
 <p>As we can see, for <code>marketing_spend</code> and <code>purchase_amount</code>, the mean (155.72 &amp; 123.22) and median (150.86 &amp; 124.17) are close, which indicates that both the variables are fairly distributed.</p>
-<p>This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.</p>
+<p>This suggests that our data is not heavily affected by outliers and will be able to reflect true and genuine patterns.</p>
 <p>Notably, the mean of <code>marketing_spend</code> is higher than <code>purchase_amount</code>, which tells us that, on average, more money is being invested in customers than is returned through purchases.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -196,7 +196,7 @@ Figure&nbsp;2: Scatter plot of marketing spend VS purchase amount
 </div>
 </div>
 </div>
-<p>The <a href="#fig-scatter" class="quarto-xref">Figure&nbsp;2</a> shows the relationship between marketing_spend and purchase_amount across all customers. The upward-sloping trend line shows the existence of a positive relationship between the two variables, where customers who received higher marketing spend made higher-value purchases.</p>
+<p>The <a href="#fig-scatter" class="quarto-xref">Figure&nbsp;2</a> shows the relationship between <code>marketing_spend</code> and <code>purchase_amount</code> across all customers. The upward-sloping trend line shows the existence of a positive relationship between the two variables, where customers who received higher marketing spend made higher-value purchases.</p>
 <p>Since the points are widely scattered around the trend line, we can assume that other factors, such as visits or customer_segment, may be influencing purchase decisions.</p>
 <p>Overall, <a href="#fig-scatter" class="quarto-xref">Figure&nbsp;2</a> indicates that there is a positive yet moderate relationship between the two key primary variables.</p>
 <div class="cell">
@@ -213,7 +213,7 @@ Figure&nbsp;3: Scatter plot of marketing spend VS purchase amount, faceted by cu
 </div>
 </div>
 </div>
-<p>The <a href="#fig-scatter-segment-wise" class="quarto-xref">Figure&nbsp;3</a> shows the relationship between marketing_spend and purchase_amount segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment.</p>
+<p>The <a href="#fig-scatter-segment-wise" class="quarto-xref">Figure&nbsp;3</a> shows the relationship between <code>marketing_spend</code> and <code>purchase_amount</code> segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment.</p>
 <p>Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact that they have fixed budgets and needs, meaning they are likely to purchase despite the level of marketing investment allocated to their segment.</p>
 <p>Additionally, the zero (purchase amounts) in the SMB segment are seen at low levels of marketing spend, which suggests that a minimum level of marketing investment must be allocated to drive purchases.</p>
 <p>Lastly, we can see that Consumers have widely spread points, indicating that their behaviour is hard to predict and that other factors may influence purchasing decisions.</p>
