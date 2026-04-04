@@ -137,7 +137,7 @@ We can see that the `marketing_spend` bars (pink) are fairly evenly distributed 
 
 Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200. Very few customers purchase above 250.
 
-The purchase_amount bars are noticeably taller in the lower ranges, while the marketing_spend bars are taller in the higher ranges, which visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
+The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
 
 # Results
 
@@ -191,4 +191,5 @@ Additionally, the zero (purchase amounts) in the SMB segment are seen at low lev
 
 Lastly, we can see that Consumers have widely spread points, indicating that their behaviour is hard to predict and that other factors may influence purchasing decisions.
 
-In conclusion, we can see that there is a positive relationship between marketing_spend and purchase_amount across all segments; however, we can conclude that marketing_spend alone is not sufficient to drive purchases.
+# Conclusion
+In conclusion, we can see that there is a positive relationship between `marketing_spend` and `purchase_amount` across all segments; however, we can conclude that marketing_spend alone is not sufficient to drive purchases.
