@@ -106,7 +106,7 @@ The @tbl-summary-stats above summarises the minimum, median, mean and maximum va
 
 As we can see, for `marketing_spend` and `purchase_amount`, the mean (155.72 & 123.22) and median (150.86 & 124.17) are close, which indicates that both the variables are fairly distributed.   
   
-This suggests that our data is not heavily affected by outliers and will be able to reflect genuine patterns.
+This suggests that our data is not heavily affected by outliers and will be able to reflect true and genuine patterns.
 
 Notably, the mean of `marketing_spend` is higher than `purchase_amount`, which tells us that, on average, more money is being invested in customers than is returned through purchases.
 
