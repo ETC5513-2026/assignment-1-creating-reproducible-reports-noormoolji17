@@ -137,7 +137,7 @@ We can see that the `marketing_spend` bars (pink) are fairly evenly distributed 
 
 Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200. Very few customers purchase above 250.
 
-The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that, beyond a certain level marketing investment, does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment and spending beyond that may lead to diminishing returns.
+The purchase_amount bars are noticeably taller in the lower ranges, while the marketing_spend bars are taller in the higher ranges, which visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
 
 # Results
 
@@ -185,10 +185,10 @@ Overall, @fig-scatter indicates that there is a positive yet moderate relationsh
 
 The @fig-scatter-segment-wise shows the relationship between marketing_spend and purchase_amount segment-wise. Across all three segments, we can see an upward pattern, which shows that a positive relationship exists irrespective of the segment. 
 
-Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact they have fixed budgets and needs, meaning they are likely to purchase despite the level of marketing investment allocated to their segment. 
+Zero purchase amounts are seen in the Consumer and SMB segments, but not in the Enterprise segment; this could be due to the fact that they have fixed budgets and needs, meaning they are likely to purchase despite the level of marketing investment allocated to their segment.
 
-Additionally, the zeros in the SMB segments are seen at low levels of marketing spend, which suggests that a minimum level of marketing investment must be allocated to drive purchase. 
+Additionally, the zero (purchase amounts) in the SMB segment are seen at low levels of marketing spend, which suggests that a minimum level of marketing investment must be allocated to drive purchases.
 
-Lastly, as we can see that Consumers have wide spread points, indicating that their behaviour is hard to predict and other factors may influence purchasing decisions. 
+Lastly, we can see that Consumers have widely spread points, indicating that their behaviour is hard to predict and that other factors may influence purchasing decisions.
 
-In conclusion, we can see that there exists a positive relationship between `marketing_spend` and `purchase_amount` across all segments, however we can conclude that `marketing_spend` alone is not sufficient to drive purchases.
+In conclusion, we can see that there is a positive relationship between marketing_spend and purchase_amount across all segments; however, we can conclude that marketing_spend alone is not sufficient to drive purchases.
