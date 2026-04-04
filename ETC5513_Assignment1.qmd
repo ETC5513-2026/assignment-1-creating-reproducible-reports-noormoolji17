@@ -75,7 +75,7 @@ To prepare the data for this analysis, the following steps were performed:
 
 3. **Rows with missing data were removed**, as the two key primary variables are important (one is independent, the other is dependent); a row missing either of these values will not be able to contribute anything meaningful to the analysis.
 
-4. **The segment variable was converted into a factor**, as R would otherwise treat it as a string variable. This ensures that R treats Consumer, SMB, and Enterprise as discrete groups, as it will be incorporated into the analysis to gain a deeper understanding of the research question, whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.
+4. **The segment variable was converted into a factor**, as R would otherwise treat it as a string variable. This ensures that R treats Consumer, SMB, and Enterprise as discrete groups. This variable will be incorporated into the analysis to gain a deeper understanding of the research question—whether the relationship between marketing spend and purchase amount differs across customer segments, and which segment responds most strongly to marketing expenditure.
 
 ## Dataset Description 
 The cleaned dataset has `r nrow(clean_data)` rows and `r ncol(clean_data)` variables.
@@ -137,7 +137,7 @@ We can see that the `marketing_spend` bars (pink) are fairly evenly distributed 
 
 Meanwhile, the `purchase_amount` bars (blue) are more concentrated in the lower range (0–200), with a peak around 150 and a sharp drop after 200. Very few customers purchase above 250.
 
-The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges, which visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
+The `purchase_amount` bars are noticeably taller in the lower ranges, while the `marketing_spend` bars are taller in the higher ranges. This visually shows that beyond a certain level, marketing investment does not generate proportionately higher purchases. This suggests that there may be an optimal level of marketing investment, and spending beyond that may lead to diminishing returns.
 
 # Results
 
